@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dashboard/services/auth_service.dart';
 
 import 'package:get/get.dart';
 
@@ -14,7 +15,7 @@ class HomeScreen extends GetView<HomeController> {
       ),
       body: Center(
         child: Text(
-          'HomeView is working',
+          '${AuthService.to.user.value.name}',
           style: TextStyle(fontSize: 20),
         ),
       ),

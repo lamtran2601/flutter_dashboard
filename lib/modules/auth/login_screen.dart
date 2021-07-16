@@ -1,26 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dashboard/modules/auth/auth_controller.dart';
-import 'package:flutter_dashboard/services/auth_service.dart';
-import 'package:get/get.dart';
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
-class LoginScreen extends GetView<AuthController> {
-  const LoginScreen({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    final authController = AuthController.to;
+    
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Obx(() => Text(AuthService.to.user.value.name)),
-            TextButton(
-              child: Text('Login'),
-              onPressed: () =>{
-                controller.login()
-              },
+      body: Container(
+        padding: EdgeInsets.all(16),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextField(
+                controller: authController.userNameController,
+                decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(8)))),
               ),
-          ],
+              TextButton(
+                child: Text('Login'),
+                onPressed: () => {authController.login()},
+              ),
+            ],
+          ),
         ),
       ),
     );

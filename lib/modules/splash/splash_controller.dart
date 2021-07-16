@@ -12,7 +12,7 @@ class SplashController extends GetxController {
   
   @override
   void onReady() {
-    Get.toNamed(Routes.home);
+    Get.offAllNamed(Routes.home);
     super.onReady();
   }
 

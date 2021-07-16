@@ -1,9 +1,13 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_dashboard/app_pages.dart';
 import 'package:flutter_dashboard/models/user.dart';
 import 'package:flutter_dashboard/services/auth_service.dart';
 import 'package:get/get.dart';
 
 class AuthController extends GetxController {
+  TextEditingController userNameController = TextEditingController(text: '');
+  TextEditingController passwordController = TextEditingController(text: '');
+
   static AuthController get to => Get.find();
 
   @override
@@ -13,25 +17,25 @@ class AuthController extends GetxController {
 
   @override
   void onReady() {
+    if (AuthService.to.isLogin) {
+      goHomeOrBack();
+    }
     super.onReady();
   }
 
   @override
   void onClose() {}
 
-  void setUser(newUser) {
-    AuthService.to.user.update((val) {
-      val = newUser;
-    });
+  void goHomeOrBack() {
+    if (Get.routing.previous.isNotEmpty) {
+      Get.back();
+    } else {
+      Get.offNamed(Routes.home);
+    }
   }
 
-  login() {
-    final newUser = User(name: 'Lam', email: 'lamtran2601@gmail.com');
-    AuthService.to.user.value = newUser;
-    if (Get.routing.previous.isEmpty) {
-      Get.offNamed(Routes.home);
-    } else {
-      Get.back();
-    }
+  login() async {
+    await AuthService.to.login();
+    goHomeOrBack();
   }
 }

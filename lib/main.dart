@@ -5,14 +5,13 @@ import 'package:get/get.dart';
 
 Future<void> main() async {
   await initService();
-  runApp(MyApp());
+  runApp(App());
 }
 
-initService() {
+Future<void> initService() async {
   Get.put(AuthService());
 }
-
-class MyApp extends StatelessWidget {
+class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(

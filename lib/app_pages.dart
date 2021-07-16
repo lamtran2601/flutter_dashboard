@@ -31,7 +31,6 @@ class AppPages {
       name: Routes.login,
       page: () => LoginScreen(),
       binding: BindingsBuilder.put(() => AuthController()),
-      middlewares: [AuthMiddleware()]
     ),
   ];
 }
