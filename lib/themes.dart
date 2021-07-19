@@ -4,7 +4,8 @@ class Themes {
   final darkTheme = ThemeData(
     fontFamily: 'NunitoSans',
     brightness: Brightness.dark,
-    textTheme: TextTheme(),
+    scaffoldBackgroundColor: Colors.black,
+    backgroundColor: Colors.black,
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(),
     ),
@@ -12,6 +13,7 @@ class Themes {
       onBackground: Color.fromRGBO(15, 19, 27, 1),
       primary: Color.fromRGBO(255, 255, 255, 1),
       onPrimary: Color.fromRGBO(255, 255, 255, 1),
+      background: Colors.black,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
@@ -27,6 +29,7 @@ class Themes {
         ),
       ),
     ),
+    toggleableActiveColor: Colors.orange,
   );
 
   final lightTheme = ThemeData(

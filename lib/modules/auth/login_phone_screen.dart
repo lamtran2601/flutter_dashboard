@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dashboard/components/appbar.dart';
+import 'package:flutter_dashboard/components/custom_appbar.dart';
 import 'package:flutter_dashboard/modules/auth/auth_controller.dart';
 
 class LoginPhoneScreen extends StatefulWidget {

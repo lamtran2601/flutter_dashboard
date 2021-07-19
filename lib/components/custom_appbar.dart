@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
+  const CustomAppBar({Key? key, this.title}) : super(key: key);
+  final String? title;
+
   Widget build(BuildContext context) {
     final canPop = ModalRoute.of(context)?.canPop ?? false;
 
@@ -15,6 +18,8 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
               },
             )
           : null,
+      backgroundColor: Colors.transparent,
+      shadowColor: Colors.transparent,
     );
   }
 

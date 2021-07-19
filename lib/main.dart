@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:flutter_dashboard/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dashboard/services/auth_service.dart';
@@ -16,14 +17,19 @@ Future<void> initService() async {
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Dashboard',
-      theme: Themes().lightTheme,
-      darkTheme: Themes().darkTheme,
-      themeMode: ThemeMode.dark,
-      initialRoute: AppPages.initial,
-      getPages: AppPages.routes,
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarBrightness: Brightness.dark,
+      ),
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Dashboard',
+        theme: Themes().lightTheme,
+        darkTheme: Themes().darkTheme,
+        themeMode: ThemeMode.dark,
+        initialRoute: AppPages.initial,
+        getPages: AppPages.routes,
+      ),
     );
   }
 }
