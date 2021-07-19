@@ -15,8 +15,6 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.1.4
   flutter_svg: ^0.22.0
-  data_table_2: ^2.0.4
-  fl_chart: ^0.36.2
 
 dev_dependencies:
   flutter_lints: ^1.0.0
@@ -33,17 +31,19 @@ flutter:
     - assets/images/
     - assets/icons/
 
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: NunitoSans
+      fonts:
+        - asset: assets/fonts/NunitoSans-ExtraBold.ttf
+          weight: 800 
+        - asset: assets/fonts/NunitoSans-Bold.ttf
+          weight: 700 
+        - asset: assets/fonts/NunitoSans-SemiBold.ttf
+          weight: 600 
+        - asset: assets/fonts/NunitoSans-Regular.ttf
+          style: normal
+          weight: 500 
+        - asset: assets/fonts/NunitoSans-Light.ttf
+          weight: 300
+        - asset: assets/fonts/NunitoSans-ExtraLight.ttf
+          weight: 200

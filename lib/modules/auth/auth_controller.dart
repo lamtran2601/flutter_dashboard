@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dashboard/app_pages.dart';
-import 'package:flutter_dashboard/models/user.dart';
 import 'package:flutter_dashboard/services/auth_service.dart';
 import 'package:get/get.dart';
 
+import 'login_phone_screen.dart';
+
 class AuthController extends GetxController {
-  TextEditingController userNameController = TextEditingController(text: '');
-  TextEditingController passwordController = TextEditingController(text: '');
+  TextEditingController phoneInputController = TextEditingController(text: '');
+  TextEditingController otpInputController = TextEditingController(text: '');
 
   static AuthController get to => Get.find();
 
@@ -38,4 +39,18 @@ class AuthController extends GetxController {
     await AuthService.to.login();
     goHomeOrBack();
   }
+
+  void signinWithFacebook() {}
+
+  void signinWithPhoneNumber() {
+    Get.to(() => LoginPhoneScreen());
+  }
+
+  void handleInputPhoneNumberDone() {
+    Get.to(() => LoginPhoneOTPScreen());
+  }
+
+  void signinWithGoogle() {}
+
+  void signinWithAppleID() {}
 }
