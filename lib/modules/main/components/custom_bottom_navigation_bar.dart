@@ -16,13 +16,15 @@ class CustomBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16),
+      padding: EdgeInsets.fromLTRB(8, 4, 8, 14),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           ...items.asMap().entries.map<Widget>((item) {
             final isActive = item.key == currentIndex;
             return IconButton(
+              splashRadius: 26,
               color: isActive ? Theme.of(context).toggleableActiveColor : null,
               onPressed: () => onChange(item.key),
               icon: isActive ? item.value.activeIcon : item.value.icon,

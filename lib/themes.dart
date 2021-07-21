@@ -6,6 +6,7 @@ class Themes {
     brightness: Brightness.dark,
     scaffoldBackgroundColor: Colors.black,
     backgroundColor: Colors.black,
+    textTheme: TextTheme(),
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(),
     ),

@@ -39,8 +39,14 @@ class MainScreen extends StatelessWidget {
                   activeIcon: Icon(Icons.search_sharp),
                 ),
                 CustomBottomNavigationBarItem(
-                  icon: Icon(Icons.mic_none_outlined),
-                  activeIcon: Icon(Icons.mic),
+                  icon: Icon(
+                    Icons.mic_none_outlined,
+                    size: 36,
+                  ),
+                  activeIcon: Icon(
+                    Icons.mic,
+                    size: 36,
+                  ),
                 ),
                 CustomBottomNavigationBarItem(
                   icon: Icon(Icons.notifications_outlined),
