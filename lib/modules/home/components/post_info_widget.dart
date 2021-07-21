@@ -28,3 +28,25 @@ class PostInfoWidget extends StatelessWidget {
     );
   }
 }
+
+class PostTitleWidget extends StatelessWidget {
+  const PostTitleWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(6),
+      color: Colors.black,
+      child: Text(
+        'Post Title',
+        style: TextStyle(
+          fontWeight: FontWeight.w700,
+          fontSize: 26,
+          height: 32 / 26,
+        ),
+      ),
+    );
+  }
+}

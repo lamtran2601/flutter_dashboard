@@ -33,7 +33,7 @@ class PostActionWidget extends StatelessWidget {
                   svgIconPath: 'assets/icons/queue.svg',
                   label: '',
                 ),
-                SizedBox(height: 16),
+                SizedBox(height: 10),
                 PostActionItemWidget(
                   svgIconPath: 'assets/icons/like.svg',
                   label: '10.2k',
@@ -80,7 +80,7 @@ class PostActionItemWidget extends StatelessWidget {
             width: 32,
             height: 32,
           ),
-          // SizedBox(height: 4),
+          SizedBox(height: 4),
           Text(
             label,
             style: TextStyle(

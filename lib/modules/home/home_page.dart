@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: CachedNetworkImageProvider(
-              'https://images.unsplash.com/photo-1589894809408-fdca3d7d548d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60',
+              'https://images.unsplash.com/photo-1565209216345-efdd627e46b2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c3Vuc2V0JTIwY2l0eXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
             ),
             fit: BoxFit.cover,
           ),
