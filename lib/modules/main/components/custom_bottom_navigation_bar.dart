@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../main_controller.dart';
-
 class CustomBottomNavigationBar extends StatelessWidget {
   const CustomBottomNavigationBar({
     Key? key,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dashboard/modules/home/home_controller.dart';
 import 'package:flutter_svg/svg.dart';
 
 class PostActionWidget extends StatelessWidget {
@@ -32,6 +33,9 @@ class PostActionWidget extends StatelessWidget {
                 PostActionItemWidget(
                   svgIconPath: 'assets/icons/queue.svg',
                   label: '',
+                  onPressed: () {
+                    HomeController.to.addPostToQueue();
+                  },
                 ),
                 SizedBox(height: 10),
                 PostActionItemWidget(
@@ -47,6 +51,9 @@ class PostActionWidget extends StatelessWidget {
                 PostActionItemWidget(
                   svgIconPath: 'assets/icons/share.svg',
                   label: '110',
+                  onPressed: () {
+                    HomeController.to.sharePost();
+                  },
                 ),
               ],
             ),
@@ -72,7 +79,7 @@ class PostActionItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onPressed,
       child: Column(
         children: [
           SvgPicture.asset(

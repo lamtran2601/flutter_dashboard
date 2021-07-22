@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dashboard/constants.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
@@ -13,18 +14,30 @@ class PostPlayerWidget extends StatefulWidget {
   _PostPlayerWidgetState createState() => _PostPlayerWidgetState();
 }
 
-class _PostPlayerWidgetState extends State<PostPlayerWidget> {
+class _PostPlayerWidgetState extends State<PostPlayerWidget>
+    with SingleTickerProviderStateMixin {
   bool showWave = false;
+
+  final wave = PlayerWaveWidget();
+  final info = PlayerInfoWidget();
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: () {
-          setState(() {
-            showWave = !showWave;
-          });
-        },
-        child: showWave ? PlayerWaveWidget() : PlayerInfoWidget());
+      onTap: () {
+        setState(() {
+          showWave = !showWave;
+        });
+      },
+      child: AnimatedSize(
+        duration: const Duration(milliseconds: 300),
+        vsync: this,
+        child: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 300),
+          child: showWave ? wave : info,
+        ),
+      ),
+    );
   }
 }
 
@@ -37,7 +50,7 @@ class PlayerWaveWidget extends StatefulWidget {
 
 class _PlayerWaveWidgetState extends State<PlayerWaveWidget> {
   final width = 2.0;
-  final maxHeight = 60;
+  final maxHeight = 90;
   final minHeight = 8;
   final padding = 16.0;
 
@@ -50,7 +63,7 @@ class _PlayerWaveWidgetState extends State<PlayerWaveWidget> {
         ((Get.mediaQuery.size.width / (width * 2)) - (padding / width)).floor(),
         (index) => Random().nextInt(maxHeight - minHeight) + minHeight);
 
-    this.count = Random().nextInt(randoms.length);
+    this.count = Random().nextInt(randoms.length - 1) + 1;
 
     super.initState();
   }
@@ -61,6 +74,7 @@ class _PlayerWaveWidgetState extends State<PlayerWaveWidget> {
     final remainLineColor = Color.fromRGBO(36, 38, 54, 1);
 
     return Container(
+      height: maxHeight.toDouble(),
       padding: EdgeInsets.all(padding),
       child: Stack(
         alignment: AlignmentDirectional.center,
@@ -73,9 +87,7 @@ class _PlayerWaveWidgetState extends State<PlayerWaveWidget> {
                       height: e.toDouble(),
                       decoration: BoxDecoration(
                         color: playedColor,
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(50),
-                        ),
+                        borderRadius: BorderRadius.circular(50),
                       ),
                       width: width,
                     ),
@@ -86,9 +98,7 @@ class _PlayerWaveWidgetState extends State<PlayerWaveWidget> {
                       height: e.toDouble(),
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(50),
-                        ),
+                        borderRadius: BorderRadius.circular(50),
                       ),
                       width: width,
                     ),
@@ -104,6 +114,7 @@ class _PlayerWaveWidgetState extends State<PlayerWaveWidget> {
                       color: playedColor,
                     ),
                   ),
+              Container(width: width, color: playedColor),
               Container(width: width, color: remainLineColor),
               ...randoms.skip(count).map(
                     (e) => Container(
@@ -132,7 +143,7 @@ class PlayerInfoWidget extends StatelessWidget {
     return Column(
       children: [
         Container(
-          color: Color.fromRGBO(63, 66, 73, 1),
+          color: AppColors.black80,
           padding: EdgeInsets.all(10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -176,7 +187,7 @@ class PlayerInfoWidget extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                color: Color.fromRGBO(63, 66, 73, 1),
+                color: AppColors.black80,
                 height: 1,
               ),
             ),

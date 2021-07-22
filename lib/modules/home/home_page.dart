@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter_dashboard/modules/home/home_controller.dart';
+import 'package:get/get.dart';
 
 import 'components/post_action_widget.dart';
 import 'components/post_info_widget.dart';
 import 'components/post_player_widget.dart';
 
 class HomePage extends StatelessWidget {
+  final homeController = Get.put(HomeController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,10 +39,13 @@ class HomePage extends StatelessWidget {
                           PostTitleWidget(),
                         ],
                       ),
-                      Column(
-                        children: [
-                          PostActionWidget(),
-                        ],
+                      Expanded(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            PostActionWidget(),
+                          ],
+                        ),
                       ),
                     ],
                   ),
